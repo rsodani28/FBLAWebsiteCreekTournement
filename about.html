@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Arena</title>
+    <!-- Link to CSS file -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="about.html" class="logo">Arena</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Box Office</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="planner.html">Planner</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Content -->
+    <main>
+        <!-- Information about the arena here -->
+        <section id="box-office">
+            <h2>Box Office - Purchase Tickets</h2>
+            <label for="event-dropdown">Select an Event:</label>
+            <select id="event-dropdown">
+                <option value="">Choose an event...</option>
+                <option value="basketball-game">Local Basketball Game - Dec 15</option>
+                <option value="concert">Community Concert - Dec 20</option>
+                <!-- Add more events as needed -->
+            </select>
+
+            <div id="purchase-info" style="display: none; margin-top: 20px;">
+                <h3>Event Tickets</h3>
+                <p id="event-details"></p>
+                <button onclick="window.location.href='https://example.com/purchase'">Buy Tickets</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Arena</p>
+    </footer>
+
+    <!-- Link to JavaScript file -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js'></script>
+    <script src='https://fullcalendar.io/releases/fullcalendar/3.10.2/lib/moment.min.js'></script>
+    <script src='https://fullcalendar.io/releases/fullcalendar/3.10.2/fullcalendar.min.js'></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

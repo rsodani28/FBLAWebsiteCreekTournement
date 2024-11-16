@@ -1,0 +1,2 @@
+CCHS football game: 5
+undefined: NaN

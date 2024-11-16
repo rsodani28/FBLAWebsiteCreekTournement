@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - My Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="header"></div>
+
+    <!-- Page Content -->
+    <div class="container text-center mt-5 pt-5 pb-5">
+        <img src="https://www.ballarena.com/media/bcwn02tm/b-ba-master-map-c_2022.png" alt="Seating Chart Example" class="img-fluid mb-4">
+        <h1>Contact Us</h1>
+        <p>Phone: XXX-XXX-XXXX</p>
+        <p>Email: example@example.com</p>
+        <p>Address: 123 Example St, Example City, EX 12345</p>
+        <p>Follow us on:</p>
+        <p>
+            <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+        </p>
+        <p>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=123+Example+St,+Example+City,+EX+12345" target="_blank" class="btn btn-primary">Get Directions</a>
+        </p>
+        
+        <!-- Amenities Section -->
+        <div class="mt-5">
+            <h2>Amenities</h2>
+            <p>We offer the following amenities for your convenience:</p>
+            <ul class="list-unstyled">
+                <li>- Free Wi-Fi</li>
+                <li>- On-site parking</li>
+                <li>- Wheelchair accessible</li>
+                <li>- Refreshments available</li>
+                <li>- Restrooms</li>
+            </ul>
+        </div>
+
+        <!-- Policies Section -->
+        <div class="mt-5">
+            <h2>Policies</h2>
+            <p>Please adhere to the following policies during your visit:</p>
+            <ul class="list-unstyled">
+                <li>- No smoking inside the premises</li>
+                <li>- No outside food or drinks</li>
+                <li>- Pets are not allowed, except for service animals</li>
+                <li>- Follow all posted signs and instructions</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="footer" class="footer"></div>
+
+    <!-- Link to JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        });
+    </script>
+</body>
+</html>

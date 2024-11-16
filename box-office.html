@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Office - My Website</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div id="header"></div>
+
+    <!-- Page Content -->
+    <div class="container text-center mt-5 pt-5">
+        <h1>Box Office</h1>
+        <div class="form-group">
+            <label for="eventSelect">Select Event</label>
+            <select class="form-control" id="eventSelect" required>
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ticketModal">Get Tickets</button>
+    </div>
+
+    <!-- Ticket Modal -->
+    <div class="modal fade" id="ticketModal" tabindex="-1" role="dialog" aria-labelledby="ticketModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ticketModalLabel">Enter Number of People</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="ticketForm">
+                        <div class="form-group">
+                            <label for="numPeople">Number of People</label>
+                            <input type="number" class="form-control" id="numPeople" min="1" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer" class="footer"></div>
+
+    <!-- Link to JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+
+            // Load events from events.txt and populate the dropdown
+            $.get('events.txt', function(data) {
+                const events = data.split('\n').filter(line => line.trim() !== '');
+                events.forEach(event => {
+                    const title = event.match(/Title: ([^,]+)/)[1];
+                    $('#eventSelect').append(new Option(title, title));
+                });
+            });
+
+            // Handle form submission
+            $('#ticketForm').on('submit', function(e) {
+                e.preventDefault();
+                const event = $('#eventSelect').val();
+                const numPeople = parseInt($('#numPeople').val(), 10);
+
+                // Send data to server to update counter.txt
+                $.post('/update-counter', { event, numPeople }, function(response) {
+                    alert('Counter updated successfully!');
+                    $('#ticketModal').modal('hide');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
